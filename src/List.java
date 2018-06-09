@@ -14,7 +14,9 @@ public class List {
 		print();
 	}
 	
-	public void removeList(int index) throws Exception {
+	public void removeList(int index, int flag) throws Exception {
+		if(index==flag) throw new Exception("O índice "+index+" já existe!");
+		
 		if(this.list.size()>0 && index<=this.list.size()) list.remove(index);
 		else if(index>this.list.size()) throw new Exception("Item "+index+" não existe!");
 		else throw new Exception("Lista vazia!");

@@ -1,9 +1,10 @@
 import java.util.Random;
 
 public class Peterson {
-	public boolean[] flags = new boolean[5];
-	public int turn = 0;
-	public List list;
+	private boolean[] flags = new boolean[5];
+	private int turn = 0;
+	private List list;
+	private Random r = new Random();
 	
 	public Peterson() {
 		list = new List();
@@ -29,12 +30,11 @@ public class Peterson {
 	        		try {
 						list.addList("Processamento "+(flag+1));
 					} catch (Exception e1) {
-						Random r = new Random();
 						try {
-							list.removeList(r.nextInt(10));
+							list.removeList(r.nextInt(10),flag);
 							list.addList("Processamento "+(flag+1));
 						} catch (Exception e) {
-							e.printStackTrace();
+							break;
 						}
 					}
 	        		

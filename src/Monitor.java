@@ -13,9 +13,9 @@ public class Monitor {
 		}
 	}
 	
-	public void remove(int index) throws Exception {
+	public void remove(int index, int flag) throws Exception {
 		synchronized(this) {
-			list.removeList(index);
+			list.removeList(index, flag);
 		}
 	}
 	
@@ -37,10 +37,10 @@ public class Monitor {
 					} catch (Exception e) {
 						Random r = new Random();
 						try {
-							remove(r.nextInt(10));
-							add("Processamento"+ flag);
+							remove(r.nextInt(10),flag);
+							add("Processamento "+ (flag+1));
 						} catch (Exception e1) {
-							e.printStackTrace();
+							break;
 						}
 					}
 	        		Utils.sleep();
