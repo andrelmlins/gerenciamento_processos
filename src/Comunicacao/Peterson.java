@@ -1,4 +1,7 @@
+package Comunicacao;
 import java.util.Random;
+
+import Auxiliar.Utils;
 
 public class Peterson {
 	private boolean[] flags = new boolean[5];

@@ -1,3 +1,5 @@
+package Auxiliar;
+
 
 public class Utils {
 	public static void sleep() {
