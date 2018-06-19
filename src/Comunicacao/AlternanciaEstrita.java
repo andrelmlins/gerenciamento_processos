@@ -12,7 +12,7 @@ public class AlternanciaEstrita {
 	private Random r = new Random();
 	
 	public AlternanciaEstrita(){
-		turn = 0;
+		turn = 1;
 		qtdProcessos = 5;
 		list = new List();
 	}
@@ -22,8 +22,7 @@ public class AlternanciaEstrita {
 		for(int i=0; i<qtdProcessos; i++) {
 			if(i>0) Utils.sleep();
 			process(i);
-		}
-		System.out.println("Fim");
+		}		
 	}
 	
 	public void process(final int flag) {
@@ -31,8 +30,10 @@ public class AlternanciaEstrita {
 	        @Override
 	        public void run() {	        	
 	        	while(true) {
-	        		while(turn != flag);
+	        		//System.out.println("flag "+flag);
+	        		while(turn != flag+1){}
 	        		try {
+	        			System.out.println("Entrou! "+flag);
 						list.addList("Processamento "+(flag+1));
 					} catch (Exception e1) {
 						try {
@@ -42,13 +43,16 @@ public class AlternanciaEstrita {
 							break;
 						}
 					}
-	        		Utils.sleep();
-	        		if(turn == qtdProcessos){	        			
-	        			turn = 0;
+	        		Utils.sleep();	        		
+	        		if(turn == qtdProcessos){	 
+	        			System.out.println("hue");
+	        			turn = 1;
 	        		}
 	        		else {
+	        			//System.out.println("++");
 	        			turn++;	        			
 	        		}
+	        		System.out.println("Turn: "+turn);
 	        	}
 	        }
 	    }, "Processador "+flag).start();	    

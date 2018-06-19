@@ -20,7 +20,7 @@ public class Semaforo {
 	}
 	
 	public void v(int index, int flag) throws Exception{
-		if(! fila.list.isEmpty()) unblock(index, flag);			
+		if(! fila.list.isEmpty()) unblock(index, flag);
 		else valor.set(1);
 	}
 	
